@@ -6,6 +6,7 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/canvas"
+	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/widget"
 	"github.com/RemyJohnny/pixl/apptype"
 )
@@ -78,4 +79,10 @@ func (c *Canvas) CreateRenderer() fyne.WidgetRenderer {
 
 	c.renderer = renderer
 	return renderer
+}
+
+func (c *Canvas) TryPan(previousCoord *fyne.PointEvent, ev *desktop.MouseEvent) {
+	if previousCoord != nil && ev.Button == desktop.MouseButtonTertiary {
+		c.Pan((*previousCoord), ev.PointEvent)
+	}
 }
