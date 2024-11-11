@@ -9,9 +9,9 @@ import (
 type BrushType = int
 
 type CanvasConfig struct {
-	drawingArea    fyne.Size
+	DrawingArea    fyne.Size
 	CanvasOffset   fyne.Position
-	pxRows, PxCols int
+	PxRows, PxCols int
 	PxSize         int
 }
 

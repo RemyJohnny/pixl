@@ -23,7 +23,7 @@ func (r *SwatchRenderer) Refresh() {
 	r.Layout(fyne.NewSize(20, 20))
 	r.square.FillColor = r.parent.Color
 	if r.parent.Selected {
-		r.square.StrokeWidth = 3
+		r.square.StrokeWidth = 1
 		r.square.StrokeColor = color.NRGBA{255, 255, 255, 255}
 		r.objects[0] = &r.square
 	} else {
