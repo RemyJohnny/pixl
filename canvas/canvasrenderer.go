@@ -17,11 +17,11 @@ func (r *CanvasRenderer) SetCursor(objects []fyne.CanvasObject) {
 }
 
 // widgetRenderer interface implementation
-func (r CanvasRenderer) MinSize() fyne.Size {
+func (r *CanvasRenderer) MinSize() fyne.Size {
 	return r.Canvas.DrawingArea
 }
 
-func (r CanvasRenderer) Objects() []fyne.CanvasObject {
+func (r *CanvasRenderer) Objects() []fyne.CanvasObject {
 	objects := make([]fyne.CanvasObject, 0, 5)
 	for i := 0; i < len(r.canvasBorder); i++ {
 		objects = append(objects, &r.canvasBorder[i])
@@ -38,7 +38,7 @@ func (r *CanvasRenderer) Layout(size fyne.Size) {
 	r.LayoutBorder(size)
 }
 
-func (r CanvasRenderer) Refresh() {
+func (r *CanvasRenderer) Refresh() {
 	if r.Canvas.reloadImage {
 		r.canvasImage = canvas.NewImageFromImage(r.Canvas.PixelData)
 		r.canvasImage.ScaleMode = canvas.ImageScalePixels
