@@ -9,6 +9,11 @@ type CanvasRenderer struct {
 	Canvas       *Canvas
 	canvasImage  *canvas.Image
 	canvasBorder []canvas.Line
+	canvasCursor []fyne.CanvasObject
+}
+
+func (r *CanvasRenderer) SetCursor(objects []fyne.CanvasObject) {
+	r.canvasCursor = objects
 }
 
 // widgetRenderer interface implementation
@@ -22,6 +27,7 @@ func (r CanvasRenderer) Objects() []fyne.CanvasObject {
 		objects = append(objects, &r.canvasBorder[i])
 	}
 	objects = append(objects, r.canvasImage)
+	objects = append(objects, r.canvasCursor...)
 	return objects
 }
 
